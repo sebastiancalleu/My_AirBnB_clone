@@ -62,3 +62,12 @@ class TestBaseModel(unittest.TestCase):
             type(ins).__name__, ins.id, ins.__dict__)
 
         self.assertEqual(string, str(ins))
+
+    def test_save(self):
+        """ Testing the save method """
+        ins = BaseModel()
+        create = ins.updated_at
+        ins.name = "Julian"
+        ins.save()
+        update = ins.updated_at
+        self.assertNotEqual(create, update)
