@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ Console command interpreter hbnb. """
+
 import cmd
 from models.base_model import BaseModel
 from models import storage
@@ -201,7 +202,8 @@ if __name__ == '__main__':
     import sys
 
     if len(sys.argv) > 1:
-        """ Take arguments  """
+        """Take arguments"""
+
         HBNBCommand().onecmd(' '.join(sys.argv[1:]))
     else:
         """ cmdloop() is the main processing loop of the interpreter """
