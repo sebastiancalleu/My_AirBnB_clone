@@ -174,20 +174,26 @@ class HBNBCommand(cmd.Cmd):
             for tokens in lexobj:
                 list2.append(tokens.replace("\'", ""))
             if list2[0] in HBNBCommand.listclasses:
-                if len(list2) == 4:
+                if len(list2) > 1:
                     str2 = list2[0] + "." + list2[1]
                     dict1 = storage.all()
                     try:
-                        obj = dict1[str2]
-                        try:
-                            atr = int(list2[3])
-                        except:
-                            try:
-                                atr = float(list2[3])
-                            except:
-                                atr = list2[3].replace("\"", "")
-                        setattr(obj, list2[2], atr)
-                        obj.save()
+                        if len(list2) > 2:
+                            if len(list2) > 3:
+                                obj = dict1[str2]
+                                try:
+                                    atr = int(list2[3])
+                                except:
+                                    try:
+                                        atr = float(list2[3])
+                                    except:
+                                        atr = list2[3].replace("\"", "")
+                                setattr(obj, list2[2], atr)
+                                obj.save()
+                            else:
+                                print("** value missing **")
+                        else:
+                            print("** attribute name missing **")
                     except BaseException:
                         print("** no instance found **")
                 else:
