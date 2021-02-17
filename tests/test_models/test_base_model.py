@@ -71,3 +71,10 @@ class TestBaseModel(unittest.TestCase):
         ins.save()
         update = ins.updated_at
         self.assertNotEqual(create, update)
+
+    def tearDown(self):
+        """ Try delete the file.json file"""
+        try:
+            remove('file.json')
+        except BaseException:
+            pass
