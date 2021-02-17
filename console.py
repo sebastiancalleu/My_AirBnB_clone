@@ -43,6 +43,18 @@ class HBNBCommand(cmd.Cmd):
             if listargs[0] in listclasses and listargs[1] == "all()":
                 newline = "all " + listargs[0]
                 return super().precmd(newline)
+            elif listargs[0] in listclasses and listargs[1] == "count()":
+                dict1 = storage.all()
+                list1 = []
+                for obkey in dict1.keys():
+                    obj = dict1[obkey]
+                    if listargs[0] in obkey.split("."):
+                        list1.append(str(obj))
+                if len(list1) == 0:
+                    pass
+                else:
+                    print(len(list1))
+                return super().precmd("")
         else:
             return super().precmd(line)
 
