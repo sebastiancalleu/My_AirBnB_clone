@@ -35,6 +35,17 @@ class HBNBCommand(cmd.Cmd):
         """An empty line + ENTER only print a new line. """
         pass
 
+    def precmd(self, line: str) -> str:
+        listargs = line.split(".")
+        listclasses = ["BaseModel", "User", "Place",
+                   "Review", "City", "State", "Amenity"]
+        if len(listargs) == 2:
+            if listargs[0] in listclasses and listargs[1] == "all()":
+                newline = "all " + listargs[0]
+                return super().precmd(newline)
+        else:
+            return super().precmd(line)
+
     def do_create(self, classtr):
         """
         do_create
