@@ -2,6 +2,7 @@
 """ Console command interpreter hbnb. """
 
 import cmd
+import sys
 from models.base_model import BaseModel
 from models import storage
 from models.user import User
@@ -198,8 +199,6 @@ class HBNBCommand(cmd.Cmd):
 
 
 if __name__ == '__main__':
-
-    import sys
 
     if len(sys.argv) > 1:
         """Take arguments"""
