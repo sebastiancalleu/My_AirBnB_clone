@@ -27,6 +27,10 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(checks.total_errors, 0,
                          'pep8 fail: {}'.format(checks.total_errors))
 
+    def test_doc_string_(self):
+        """ Validate the documentation of methods in base_model"""
+        self.assertIsNotNone(BaseModel.__doc__)
+
     def test_create_an_instance_(self):
         """ Test creating an instance"""
         instance = BaseModel()
