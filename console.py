@@ -55,6 +55,10 @@ class HBNBCommand(cmd.Cmd):
                 else:
                     print(len(list1))
                 return super().precmd("")
+            tmplist = listargs[1].split("(")
+            idstr = tmplist[1].replace(")", "")
+            newline = tmplist[0] + " " + listargs[0] + " " + idstr
+            return super().precmd(newline)
         else:
             return super().precmd(line)
 
