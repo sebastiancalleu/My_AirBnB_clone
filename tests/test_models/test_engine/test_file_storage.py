@@ -39,3 +39,13 @@ class TestFileStorage(unittest.TestCase):
         all_objs = storage.all()
 
         self.assertTrue(type(all_objs), "<class 'dict'>")
+
+    def test_new(self):
+        """ Testing the new method """
+        ins = BaseModel()
+        ins.save()
+        all_objs = storage.all()
+
+        obj_key = ins.__class__.__name__ + '.' + ins.id
+        self.assertEqual(all_objs[obj_key], ins)
+        self.assertEqual(obj_key in all_objs, True)
