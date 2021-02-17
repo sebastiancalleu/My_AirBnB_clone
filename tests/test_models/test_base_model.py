@@ -45,6 +45,7 @@ class TestBaseModel(unittest.TestCase):
         my_model_json = my_model.to_dict()
 
         self.assertTrue(type(my_model_json), "<class 'dict'>")
+        self.assertEqual('__class__' in my_model_json, True)
 
     def test_check_atributes(self):
         """ Validate the type of attributes """
@@ -73,7 +74,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertNotEqual(create, update)
 
     def tearDown(self):
-        """ Try delete the file.json file"""
+        """ Try delete the file.json file after each test """
         try:
             remove('file.json')
         except BaseException:
