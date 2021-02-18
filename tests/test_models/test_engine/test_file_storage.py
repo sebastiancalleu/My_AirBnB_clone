@@ -51,20 +51,20 @@ class TestFileStorage(unittest.TestCase):
         self.assertEqual(all_objs[obj_key], ins)
         self.assertEqual(obj_key in all_objs, True)
 
-    def test_A_reload_method_empty(self):
-        """
-        Test reload method
-        """
-        all_objs = storage.all()
-        storage.reload()
-        self.assertEqual(FileStorage._FileStorage__objects, {})
-
     def test_file_json(self):
         """Test for check file.json """
         my_model = BaseModel()
         my_model.save()
         here = os.path.exists('file.json')
         self.assertEqual(here, True)
+
+    def test_reload_method_empty(self):
+        """
+        Test reload method
+        """
+        all_objs = storage.all()
+        storage.reload()
+        self.assertEqual(FileStorage._FileStorage__objects, {})
 
     def test_models_init(self):
         """ Test models/__init__.py """
