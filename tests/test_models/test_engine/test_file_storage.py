@@ -59,15 +59,6 @@ class TestFileStorage(unittest.TestCase):
         storage.reload()
         self.assertEqual(FileStorage._FileStorage__objects, {})
 
-    def test_B_reload_method_(self):
-        """ Test reload method."""
-        ins = BaseModel()
-        ins.save()
-
-        storage.reload()
-        all_objs = storage.all()
-        self.assertEqual(len(all_objs), 1)
-
     def test_file_json(self):
         """Test for check file.json """
         my_model = BaseModel()
