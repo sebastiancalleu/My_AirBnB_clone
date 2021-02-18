@@ -53,14 +53,17 @@ class TestFileStorage(unittest.TestCase):
         self.assertEqual(here, True)
 
     def test_reload_method_empty(self):
-        """
-        Test reload method
-        """
+        """ Test reload method """
         all_objs = storage.all()
         storage.reload()
         self.assertEqual(FileStorage._FileStorage__objects, {})
 
-    def test_models_init(self):
+        instance = BaseModel()
+        instance.save()
+        storage.reload()
+        self.assertEqual((len(FileStorage._FileStorage__objects)), 1)
+
+    def test_models_lnit_(self):
         """ Test models/__init__.py """
         strg = FileStorage()
         self.assertIsInstance(strg, FileStorage)
