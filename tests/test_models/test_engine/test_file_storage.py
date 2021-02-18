@@ -3,6 +3,7 @@
 
 import unittest
 from os import remove
+import os
 import pep8
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
@@ -50,11 +51,17 @@ class TestFileStorage(unittest.TestCase):
         self.assertEqual(all_objs[obj_key], ins)
         self.assertEqual(obj_key in all_objs, True)
 
-    def test_reload_method(self):
+    def test_A_reload_method(self):
         """ Test reload method."""
         all_objs = storage.all()
+        self.assertEqual(all_objs, {})
+
+        ins = BaseModel()
+        ins.save()
+
         storage.reload()
-        self.assertEqual(FileStorage._FileStorage__objects, {})
+        all_objs = storage.all()
+        self.assertEqual(len(all_objs), 1)
 
     def test_file_json(self):
         """Test for check file.json """
@@ -62,3 +69,8 @@ class TestFileStorage(unittest.TestCase):
         my_model.save()
         here = os.path.exists('file.json')
         self.assertEqual(here, True)
+
+    def test_models_init(self):
+        """ Test models/__init__.py """
+        strg = FileStorage()
+        self.assertIsInstance(strg, FileStorage)
