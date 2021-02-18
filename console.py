@@ -38,7 +38,7 @@ class HBNBCommand(cmd.Cmd):
     def precmd(self, line: str) -> str:
         listargs = line.split(".")
         listclasses = ["BaseModel", "User", "Place",
-                   "Review", "City", "State", "Amenity"]
+                       "Review", "City", "State", "Amenity"]
         if len(listargs) == 2:
             if listargs[0] in listclasses and listargs[1] == "all()":
                 newline = "all " + listargs[0]
