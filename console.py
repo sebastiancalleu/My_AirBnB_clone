@@ -57,6 +57,10 @@ class HBNBCommand(cmd.Cmd):
                 return super().precmd("")
             tmplist = listargs[1].split("(")
             idstr = tmplist[1].replace(")", "")
+            updatestr = idstr.replace(",", "")
+            if tmplist[0] == "update":
+                newline = tmplist[0] + " " + listargs[0] + " " + updatestr
+                return super().precmd(newline)
             newline = tmplist[0] + " " + listargs[0] + " " + idstr
             return super().precmd(newline)
         else:
