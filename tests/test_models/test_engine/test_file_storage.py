@@ -51,11 +51,16 @@ class TestFileStorage(unittest.TestCase):
         self.assertEqual(all_objs[obj_key], ins)
         self.assertEqual(obj_key in all_objs, True)
 
-    def test_A_reload_method(self):
-        """ Test reload method."""
+    def test_A_reload_method_empty(self):
+        """
+        Test reload method
+        """
         all_objs = storage.all()
-        self.assertEqual(all_objs, {})
+        storage.reload()
+        self.assertEqual(FileStorage._FileStorage__objects, {})
 
+    def test_B_reload_method_(self):
+        """ Test reload method."""
         ins = BaseModel()
         ins.save()
 
