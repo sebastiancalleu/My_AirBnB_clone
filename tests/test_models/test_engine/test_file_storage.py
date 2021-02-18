@@ -15,13 +15,7 @@ class TestFileStorage(unittest.TestCase):
 
     def setUp(self):
         """ Try delete the file.json file"""
-        try:
-            remove('file.json')
-        except BaseException:
-            pass
-
-    def tearDown(self):
-        """ Try delete the file.json file after each test """
+        FileStorage._FileStorage__objects = {}
         try:
             remove('file.json')
         except BaseException:
@@ -70,3 +64,11 @@ class TestFileStorage(unittest.TestCase):
         """ Test models/__init__.py """
         strg = FileStorage()
         self.assertIsInstance(strg, FileStorage)
+
+    def tearDown(self):
+        """ Try delete the file.json file after each test """
+        FileStorage._FileStorage__objects = {}
+        try:
+            remove('file.json')
+        except BaseException:
+            pass
