@@ -127,5 +127,5 @@ holberton@AirBnB_clone$ ./console.py
 
 ## Authors ✒️
 
-Sebastian Calle Uribe
+Sebastian Calle Uribe <br />
 Yeferson Julian Losada Mendez
