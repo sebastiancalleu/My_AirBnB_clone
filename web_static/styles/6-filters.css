@@ -30,13 +30,35 @@ button:hover {
 	border-right: 1px solid #dddddd;
 }
 
+.locations h4, .amenities h4 {
+	margin-bottom: 17px;
+}
+
 .popover {
 	display: none;
 	width: 100%;
 	background-color: #FAFAFA;
+	border: 1px solid #dddddd;
+	border-radius: 4px;
+	top: 100%;
 }
 
-.locations:hover + .popover{
+.popover h2 {
+	font-size: 16px;
+	margin-bottom: 0px;
+}
+
+.popover li {
+	list-style: none;
+}
+
+.popover ul li ul {
+	padding-left: 15px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+div:hover > .popover{
 	display: block;
 	color: black;
 }
@@ -58,4 +80,14 @@ h4 {
 	margin-left: 50px;
 	font-weight: 400;
 	font-size: 14px;
+}
+
+.popover ul {
+	margin-top: 30px;
+	margin-bottom: 50px;
+	padding-left: 25px;
+}
+
+.amenities .popover ul {
+	margin-left: 25px;
 }
