@@ -31,7 +31,7 @@ button:hover {
 }
 
 .locations h4, .amenities h4 {
-	margin-bottom: 17px;
+	margin-bottom: 19px;
 }
 
 .popover {
@@ -41,7 +41,7 @@ button:hover {
 	border: 1px solid #dddddd;
 	border-radius: 4px;
 	top: 100%;
-	margin-top: 28px;
+	margin-top: 0px;
 }
 
 .popover h2 {
@@ -71,7 +71,7 @@ div:hover > .popover{
 
 h3 {
 	margin: 0%;
-	margin-top: 10px;
+	margin-top: 19px;
 	margin-left: 50px;
 	font-weight: 600;
 }
