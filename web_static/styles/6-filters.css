@@ -41,6 +41,7 @@ button:hover {
 	border: 1px solid #dddddd;
 	border-radius: 4px;
 	top: 100%;
+	margin-top: 28px;
 }
 
 .popover h2 {
